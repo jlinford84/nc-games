@@ -3,9 +3,9 @@ import './App.css';
 import Header from './components/Header';
 import NavBar from './components/NavBar';
 import Main from './components/Main'
-// , Routes, Route
+import Category from './components/Category';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import './App.css';
+
 
 function App() {
   
@@ -16,11 +16,13 @@ function App() {
         <NavBar/>
           <Routes>
             <Route path='/' element={<Main/>}/>
-          </Routes> 
-        <Main/>
+            <Route path='/category/:category_name' element={<Category/>}/>
+          </Routes>
       </div>
     </BrowserRouter>  
   );
 }
 
 export default App;
+
+
