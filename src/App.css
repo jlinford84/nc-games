@@ -1,15 +1,12 @@
 .App {
   text-align: center;
   background-color: rgb(119, 238, 104);
-  
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-
-
 
 .App-header {
   background-color: #282c34;
@@ -26,9 +23,9 @@
   color: #61dafb;
 }
 
-img{
-  width:100%;
-  max-width:600px;
+img {
+  width: 100%;
+  max-width: 600px;
 }
 
 .reviews {
@@ -38,16 +35,14 @@ img{
   width: 80%;
   padding: 0;
   margin: auto;
-  
 }
 
 .navBar {
   border-radius: 10px;
   padding: 10px;
   margin: 5px;
-  
 }
 
-.nav-link{
+.nav-link {
   padding: 5px;
 }
