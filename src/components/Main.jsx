@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchReviews } from "../api";
+import { Link } from "react-router-dom";
 
 function Main() {
   const [reviews, setReviews] = useState([]);
@@ -17,36 +18,21 @@ function Main() {
   return (
     <section className="reviews">
       <ul>
-        {reviews.map(
-          ({
-            review_id,
-            title,
-            // category,
-            // designer,
-            // owner,
-            review_body,
-            review_img_url,
-            // votes,
-            // comment_count
-          }) => {
-            return (
-              <li key={review_id}>
-                <img className="img" src={review_img_url} alt='Game' />
-                <br />
-                <br />
-                Name: {title}
-                <br />
-                <br />
-                Review: {review_body}
-                <br />
-                <br />
-              </li>
-            );
-          }
-        )}
+        {reviews.map(({ review_id, title, review_body, review_img_url }) => {
+          return (
+            <li key={review_id}>
+              <Link className="rev-link" to={`/reviews/${review_id}`}>
+                <img className="img" alt={`${title}`} src={review_img_url} />
+              </Link>
+              <h2>Name: {title}</h2>
+              <p>Review: {review_body}</p>
+            </li>
+          );
+        })}
       </ul>
     </section>
   );
 }
 
 export default Main;
+

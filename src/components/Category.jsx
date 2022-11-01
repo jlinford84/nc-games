@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchCategory } from "../api";
+import { Link } from "react-router-dom";
 
 function Category() {
-    const { category_name } = useParams()
+  const { category_name } = useParams();
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -22,15 +23,11 @@ function Category() {
         {reviews.map(({ review_id, title, review_body, review_img_url }) => {
           return (
             <li key={review_id}>
-              <img className="img" src={review_img_url} alt='Game'/>
-              <br />
-              <br />
-              Name: {title}
-              <br />
-              <br />
-              Review: {review_body}
-              <br />
-              <br />
+              <Link className="rev-link" to={`/reviews/${review_id}`}>
+                <img className="img" alt={`${title}`} src={review_img_url} />
+              </Link>
+              <h2>Name: {title}</h2>
+              <p>Review: {review_body}</p>
             </li>
           );
         })}
