@@ -23,8 +23,8 @@ function Main() {
             <li key={review_id}>
               <Link className="rev-link" to={`/reviews/${review_id}`}>
                 <img className="img" alt={`${title}`} src={review_img_url} />
+                <h2>Name: {title}</h2>
               </Link>
-              <h2>Name: {title}</h2>
               <p>Review: {review_body}</p>
             </li>
           );
@@ -35,4 +35,3 @@ function Main() {
 }
 
 export default Main;
-
