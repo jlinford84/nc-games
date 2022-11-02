@@ -1,12 +1,12 @@
 import { patchReviewVotes } from "../api";
 
-function VoteUpdater({ setVoteCount, id, votes }) {
+function VoteUpdater({ setVoteCount, id }) {
   return (
     <>
       <button
         id="upBtn"
         onClick={() => {
-          patchReviewVotes(votes + 1, id);
+          patchReviewVotes(1, id);
           document.getElementById("upBtn").disabled = true;
           document.getElementById("dwnBtn").disabled = false;
           setVoteCount((currentVotes) => {
@@ -20,7 +20,7 @@ function VoteUpdater({ setVoteCount, id, votes }) {
       <button
         id="dwnBtn"
         onClick={() => {
-          patchReviewVotes(votes - 1, id);
+          patchReviewVotes(-1, id);
           document.getElementById("dwnBtn").disabled = true;
           document.getElementById("upBtn").disabled = false;
           setVoteCount((currentVotes) => {
