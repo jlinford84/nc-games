@@ -36,3 +36,21 @@ export const fetchComments = (review_id) => {
     `https://nc-super-awesome-games.herokuapp.com/api/reviews/${review_id}/comments`
   ).then((res) => res.json());
 };
+
+export const postComments = (commentToPost, review_id) => {
+  return fetch(
+    `https://nc-super-awesome-games.herokuapp.com/api/reviews/${review_id}/comments`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: commentToPost.username,
+        body: commentToPost.body,
+      }),
+    }
+  ).then((response) => {
+    return response.json();
+  });
+};
