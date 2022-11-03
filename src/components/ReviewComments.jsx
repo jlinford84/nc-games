@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchComments } from "../api";
+import LeaveComment from "./LeaveComment";
 
 function ReviewComments() {
   const { id } = useParams();
@@ -9,7 +10,7 @@ function ReviewComments() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetchComments(id).then(({comment}) => {
+    fetchComments(id).then(({ comment }) => {
       setComments(comment);
       setIsLoading(false);
     });
@@ -25,13 +26,12 @@ function ReviewComments() {
               <h2>Comment by: {author}</h2>
               <p>Created on: {created_at}</p>
               <p>Comment: {body}</p>
-              <p>
-                Votes: {votes}
-              </p>
+              <p>Votes: {votes}</p>
             </li>
           );
         })}
       </ol>
+      <LeaveComment setComments={setComments} />
     </section>
   );
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import VoteUpdater from "./VoteUpdater";
 import { fetchIndividualReview } from "../api";
+import ReviewComments from "./ReviewComments";
 
 function IndividualReview() {
   const { id } = useParams();
@@ -31,9 +32,6 @@ function IndividualReview() {
       <p>Designer: {review.designer}</p>
       <p>Owner: {review.owner}</p>
       <p>Review: {review.review_body}</p>
-      <Link className="rev-link" to={`/reviews/${id}/comments`}>
-        <p>Comments: {review.comment_count}</p>
-      </Link>
       <p>
         Votes: {review.votes + voteCount}
         {
@@ -44,6 +42,15 @@ function IndividualReview() {
           />
         }
       </p>
+      <div className="expand_box">
+        <input type="checkbox" id="trigger" />
+        <label id="dropdown" htmlFor="trigger">
+          Click to View or Post a Comment: {review.comment_count}
+        </label>
+        <div>
+          <ReviewComments />
+        </div>
+      </div>
     </section>
   );
 }

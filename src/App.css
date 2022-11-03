@@ -46,3 +46,51 @@ img {
 .nav-link {
   padding: 5px;
 }
+
+.expand_box {
+  border: 1px solid gray;
+
+}
+
+#trigger {
+  display: none;
+}
+
+#dropdown {
+  font-size: 20px;
+  background-color: aquamarine ;
+  display: block;
+  cursor: pointer;
+  padding: 10px 10px 10px 30px;
+  position: relative;
+}
+label::before {
+  content: " ";
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent black;
+  height:0;
+  font-size: 0;
+  position: absolute ;
+  top: 13px; 
+  left: 10px;
+  transition: transform 0.5s;
+  transform-origin: 3px center;
+}
+
+.expand_box div {
+  font-size: 15px;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+input:checked ~ label::before {
+  transform: rotate(90deg);
+}
+
+input:checked ~ div {
+  padding: 10px;
+  opacity: 1;
+  height: auto;
+}
