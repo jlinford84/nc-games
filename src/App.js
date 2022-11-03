@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import Main from "./components/Main";
 import Category from "./components/Category";
 import IndividualReview from "./components/IndividualReview";
+import ReviewComments from "./components/ReviewComments";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/category/:category_name" element={<Category />} />
           <Route path="/reviews/:id" element={<IndividualReview />} />
+          <Route path="/reviews/:id/comments" element={<ReviewComments />} />
         </Routes>
       </div>
     </BrowserRouter>

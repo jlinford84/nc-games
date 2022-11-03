@@ -30,3 +30,9 @@ export const patchReviewVotes = (updatedVotes, review_id) => {
     }
   ).then((response) => response.json());
 };
+
+export const fetchComments = (review_id) => {
+  return fetch(
+    `https://nc-super-awesome-games.herokuapp.com/api/reviews/${review_id}/comments`
+  ).then((res) => res.json());
+};

@@ -31,6 +31,9 @@ function IndividualReview() {
       <p>Designer: {review.designer}</p>
       <p>Owner: {review.owner}</p>
       <p>Review: {review.review_body}</p>
+      <Link className="rev-link" to={`/reviews/${id}/comments`}>
+        <p>Comments: {review.comment_count}</p>
+      </Link>
       <p>
         Votes: {review.votes + voteCount}
         {
