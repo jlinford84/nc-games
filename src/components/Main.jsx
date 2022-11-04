@@ -10,7 +10,7 @@ function Main({ reviews, setReviews, searchTerm }) {
       setReviews(reviews);
       setIsLoading(false);
     });
-  }, [searchTerm]);
+  }, [searchTerm, setReviews]);
 
   if (isLoading) return <p className="loading">Loading...</p>;
   return (
