@@ -1,9 +1,9 @@
 import { postComments } from "../api";
 import { useParams } from "react-router-dom";
 
-function LeaveComment({ setComments }) {
+function LeaveComment({ setComments, owner }) {
   const { id } = useParams();
-  const commentToPost = {};
+  const commentToPost = { username: "weegembump" };
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -12,28 +12,29 @@ function LeaveComment({ setComments }) {
         return [...currentComments, res.comment];
       });
     });
-    document.getElementById("post_btn").disabled = true;
+    document.getElementById("comment").value = "";
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="username" placeholder="Enter username">
-        Username:
+        Logged in as: {commentToPost.username}
       </label>
-      <input type="text" id="username" />
       <br />
-      <label htmlFor="username">Comment:</label>
       <textarea
         id="comment"
         className="comment"
-        placeholder="Leave your comment here..."
+        rows="5"
+        cols="45"
+        placeholder={`Hi ${commentToPost.username},
+feel free to leave a comment on this review...`}
+        required
       ></textarea>
       <br />
       <button
         type="submit"
         id="post_btn"
         onClick={() => {
-          commentToPost.username = document.getElementById("username").value;
           commentToPost.body = document.getElementById("comment").value;
         }}
       >
