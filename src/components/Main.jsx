@@ -26,7 +26,7 @@ function Main({ reviews, setReviews, searchTerm }) {
                   <h2>Name: {title}</h2>
                 </Link>
                 <p>Author: {owner}</p>
-                <p>Created at: {created_at}</p>
+                <p>Created at: {Date(created_at)}</p>
                 <p>Votes: {votes}</p>
               </li>
             );

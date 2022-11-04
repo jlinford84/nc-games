@@ -24,7 +24,7 @@ function ReviewComments() {
           return (
             <li key={comment_id}>
               <h2>Comment by: {author}</h2>
-              <p>Created on: {created_at}</p>
+              <p>Created on: {Date(created_at)}</p>
               <p>Comment: {body}</p>
               <p>Votes: {votes}</p>
             </li>
