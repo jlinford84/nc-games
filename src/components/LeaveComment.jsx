@@ -12,7 +12,7 @@ function LeaveComment({ setComments }) {
         return [...currentComments, res.comment];
       });
     });
-    document.getElementById("post_btn").disabled = true;
+    document.getElementById('comment').value = ''
   }
 
   return (
@@ -20,13 +20,14 @@ function LeaveComment({ setComments }) {
       <label htmlFor="username" placeholder="Enter username">
         Username:
       </label>
-      <input type="text" id="username" />
+      <input type="text" id="username" required/>
       <br />
       <label htmlFor="username">Comment:</label>
       <textarea
         id="comment"
         className="comment"
         placeholder="Leave your comment here..."
+        required
       ></textarea>
       <br />
       <button

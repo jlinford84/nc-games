@@ -20,7 +20,7 @@ function Category() {
   return (
     <section className="reviews">
       <ul>
-        {reviews.map(({ review_id, title, owner, created_at, votes, review_img_url }) => {
+        {reviews.map(({ review_id, title, owner, created_at, votes, review_img_url, comment_count }) => {
           return (
             <li key={review_id}>
               <Link className="rev-link" to={`/reviews/${review_id}`}>
@@ -29,6 +29,7 @@ function Category() {
               </Link>
               <p>Author: {owner}</p>
                 <p>Created at: {Date(created_at)}</p>
+                <p>Comments: {comment_count}</p>
                 <p>Votes: {votes}</p>
             </li>
           );
