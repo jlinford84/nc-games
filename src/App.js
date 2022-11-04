@@ -14,7 +14,6 @@ function App() {
       <div className="App">
         <Header />
         <NavBar />
-        <SortHandle />
         <Routes>
           <Route path="/" element={<SortHandle />} />
           <Route path="/category/:category_name" element={<Category />} />
