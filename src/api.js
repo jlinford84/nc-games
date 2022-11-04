@@ -28,7 +28,7 @@ export const patchReviewVotes = (updatedVotes, review_id) => {
         "Content-type": "application/json; charset=UTF-8",
       },
     }
-  ).then((response) => response.json());
+  ).then((res) => res.json());
 };
 
 export const fetchComments = (review_id) => {
@@ -50,7 +50,15 @@ export const postComments = (commentToPost, review_id) => {
         body: commentToPost.body,
       }),
     }
-  ).then((response) => {
-    return response.json();
+  ).then((res) => {
+    return res.json();
   });
 };
+
+export const  removeComment = (comment_id) => {
+  fetch(`https://nc-super-awesome-games.herokuapp.com/api/comments/${comment_id}`, {
+  method: 'DELETE'
+})
+  .then(res => res.json())
+  .catch(err => console.log(err));
+}

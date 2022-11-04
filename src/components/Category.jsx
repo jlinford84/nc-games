@@ -20,14 +20,16 @@ function Category() {
   return (
     <section className="reviews">
       <ul>
-        {reviews.map(({ review_id, title, review_body, review_img_url }) => {
+        {reviews.map(({ review_id, title, owner, created_at, votes, review_img_url }) => {
           return (
             <li key={review_id}>
               <Link className="rev-link" to={`/reviews/${review_id}`}>
                 <img className="img" alt={`${title}`} src={review_img_url} />
                 <h2>Name: {title}</h2>
               </Link>
-              <p>Review: {review_body}</p>
+              <p>Author: {owner}</p>
+                <p>Created at: {Date(created_at)}</p>
+                <p>Votes: {votes}</p>
             </li>
           );
         })}
