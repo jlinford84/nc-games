@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchComments } from "../api";
+import DeleteComments from "./DeleteComment";
 import LeaveComment from "./LeaveComment";
 
 function ReviewComments() {
@@ -27,6 +28,11 @@ function ReviewComments() {
               <p>Created on: {Date(created_at)}</p>
               <p>Comment: {body}</p>
               <p>Votes: {votes}</p>
+              <DeleteComments
+                comment_id={comment_id}
+                setComments={setComments}
+                author={author}
+              />
             </li>
           );
         })}
