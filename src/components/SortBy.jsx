@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function SortBy({ setSearchTerm }) {
   const terms = [
+    { value: "reviews", text: 'Home'},
     { value: "reviews?sort_by=created_at", text: "Date, Descending" },
     { value: "reviews?sort_by=created_at&&order=ASC", text: "Date, Ascending" },
     {
