@@ -1,5 +1,5 @@
-export const fetchReviews = () => {
-  return fetch("https://nc-super-awesome-games.herokuapp.com/api/reviews").then(
+export const fetchReviews = (searchTerm) => {
+  return fetch(`https://nc-super-awesome-games.herokuapp.com/api/${searchTerm}`).then(
     (res) => res.json()
   );
 };

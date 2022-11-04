@@ -6,6 +6,7 @@ import Category from "./components/Category";
 import IndividualReview from "./components/IndividualReview";
 import ReviewComments from "./components/ReviewComments";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SortHandle from "./components/SortHandle";
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
       <div className="App">
         <Header />
         <NavBar />
+        <SortHandle />
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/" element={<SortHandle />} />
           <Route path="/category/:category_name" element={<Category />} />
           <Route path="/reviews/:id" element={<IndividualReview />} />
           <Route path="/reviews/:id/comments" element={<ReviewComments />} />
