@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 function LeaveComment({ setComments }) {
   const { id } = useParams();
-  const commentToPost = {};
+  const commentToPost = {username: 'weegembump'};
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -18,15 +18,13 @@ function LeaveComment({ setComments }) {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="username" placeholder="Enter username">
-        Username:
+        Username: { commentToPost.username }
       </label>
-      <input type="text" id="username" required/>
-      <br />
-      <label htmlFor="username">Comment:</label>
+      <br/>
       <textarea
         id="comment"
         className="comment"
-        placeholder="Leave your comment here..."
+        placeholder={`${commentToPost.username} leave your comment here...`}
         required
       ></textarea>
       <br />
@@ -34,7 +32,6 @@ function LeaveComment({ setComments }) {
         type="submit"
         id="post_btn"
         onClick={() => {
-          commentToPost.username = document.getElementById("username").value;
           commentToPost.body = document.getElementById("comment").value;
         }}
       >
