@@ -1,6 +1,9 @@
 import { patchReviewVotes } from "../api";
 
 function VoteUpdater({ setVoteCount, id }) {
+
+
+
   return (
     <>
       <button
@@ -10,7 +13,7 @@ function VoteUpdater({ setVoteCount, id }) {
           document.getElementById("upBtn").disabled = true;
           document.getElementById("dwnBtn").disabled = false;
           setVoteCount((currentVotes) => {
-            return currentVotes + 1;
+              return currentVotes + 1
           });
         }}
       >
@@ -24,7 +27,7 @@ function VoteUpdater({ setVoteCount, id }) {
           document.getElementById("dwnBtn").disabled = true;
           document.getElementById("upBtn").disabled = false;
           setVoteCount((currentVotes) => {
-            return currentVotes - 1;
+              return currentVotes - 1
           });
         }}
       >
