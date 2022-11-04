@@ -1,7 +1,6 @@
 import { patchReviewVotes } from "../api";
 
 function VoteUpdater({ setVoteCount, id }) {
-  let voted = true;
 
   return (
     <>
