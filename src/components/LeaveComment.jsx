@@ -1,9 +1,9 @@
 import { postComments } from "../api";
 import { useParams } from "react-router-dom";
 
-function LeaveComment({ setComments }) {
+function LeaveComment({ setComments, owner }) {
   const { id } = useParams();
-  const commentToPost = {username: 'weegembump'};
+  const commentToPost = { username: "weegembump" };
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -12,19 +12,22 @@ function LeaveComment({ setComments }) {
         return [...currentComments, res.comment];
       });
     });
-    document.getElementById('comment').value = ''
+    document.getElementById("comment").value = "";
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="username" placeholder="Enter username">
-        Username: { commentToPost.username }
+        Logged in as: {commentToPost.username}
       </label>
-      <br/>
+      <br />
       <textarea
         id="comment"
         className="comment"
-        placeholder={`${commentToPost.username} leave your comment here...`}
+        rows="5"
+        cols="45"
+        placeholder={`Hi ${commentToPost.username},
+feel free to leave a comment on this review...`}
         required
       ></textarea>
       <br />

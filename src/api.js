@@ -1,19 +1,22 @@
+import ErrorPage from "./components/ErrorPage";
+
 export const fetchReviews = (searchTerm) => {
-  return fetch(`https://nc-super-awesome-games.herokuapp.com/api/${searchTerm}`).then(
-    (res) => res.json()
-  );
+  return fetch(`https://nc-super-awesome-games.herokuapp.com/api/${searchTerm}`)
+  .then((res) => res.json());
 };
 
 export const fetchCategory = (category_name) => {
   return fetch(
     `https://nc-super-awesome-games.herokuapp.com/api/reviews?category=${category_name}`
-  ).then((res) => res.json());
+  ).then(ErrorPage)
+  .then(res => res.json())
 };
 
 export const fetchIndividualReview = (review_id) => {
   return fetch(
     `https://nc-super-awesome-games.herokuapp.com/api/reviews/${review_id}`
-  ).then((res) => res.json());
+  ).then(ErrorPage)
+  .then(res => res.json())
 };
 
 export const patchReviewVotes = (updatedVotes, review_id) => {

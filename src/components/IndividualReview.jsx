@@ -9,14 +9,30 @@ function IndividualReview() {
   const [review, setReview] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [voteCount, setVoteCount] = useState(0);
+  const [error, setError] = useState(null);
+
 
   useEffect(() => {
     setIsLoading(true);
     fetchIndividualReview(id).then(({ review }) => {
       setReview(review);
       setIsLoading(false);
+    })
+    .catch((err) => {
+      setError({ err })
     });
   }, [id]);
+
+  if (error) {
+    return <>
+            <h2>Requested Review Does Not Exist!!</h2>
+            <Link className="nav-link" to="/">
+            Back to home
+            </Link>
+          </>
+    
+  }
+  
 
   if (isLoading) return <p className="loading">Loading...</p>;
 
@@ -48,7 +64,7 @@ function IndividualReview() {
           Click to View or Post a Comment: {review.comment_count}
         </label>
         <div>
-          <ReviewComments />
+          <ReviewComments/>
         </div>
       </div>
     </section>

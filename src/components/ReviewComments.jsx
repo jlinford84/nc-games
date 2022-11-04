@@ -37,7 +37,8 @@ function ReviewComments() {
           );
         })}
       </ol>
-      <LeaveComment setComments={setComments} />
+      <LeaveComment 
+      setComments={setComments} />
     </section>
   );
 }

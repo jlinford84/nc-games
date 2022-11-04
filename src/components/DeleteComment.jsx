@@ -17,7 +17,7 @@ function DeleteComments({ comment_id, setComments, author }) {
           });
         }}
       >
-        Remove Comment
+        Remove your Comment
       </button>
     );
   }
